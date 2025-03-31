@@ -1,0 +1,139 @@
+.form-builder-container {
+    padding: 20px;
+    height: calc(100vh - 100px);
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.control-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.control-item {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    cursor: grab;
+    transition: all 0.2s;
+}
+
+    .control-item:hover {
+        background-color: #e9ecef;
+        border-color: #adb5bd;
+    }
+
+    .control-item i {
+        margin-right: 8px;
+    }
+
+.form-preview {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-header {
+    padding: 15px;
+    border-bottom: 1px solid #dee2e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-canvas {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+    position: relative;
+    min-height: 300px;
+    background-color: #f8f9fa;
+}
+
+.form-properties {
+    padding: 15px;
+    border-top: 1px solid #dee2e6;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.empty-form-message {
+    text-align: center;
+    color: #6c757d;
+    padding: 40px;
+}
+
+.empty-properties-message {
+    text-align: center;
+    color: #6c757d;
+    padding: 20px;
+}
+
+.form-container {
+    background-color: white;
+    border: 1px dashed #adb5bd;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    padding: 10px;
+}
+
+    .form-container.drag-over {
+        border-color: #0d6efd;
+        background-color: rgba(13, 110, 253, 0.1);
+    }
+
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.container-body {
+    min-height: 50px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+    .container-body.drag-over {
+        border: 2px dashed #0d6efd;
+        background-color: rgba(13, 110, 253, 0.1);
+    }
+
+.form-field {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+    .form-field:hover {
+        border-color: #0d6efd;
+    }
+
+    .form-field.selected {
+        border-color: #0d6efd;
+        background-color: rgba(13, 110, 253, 0.05);
+    }
+
+.ui-draggable-dragging {
+    opacity: 0.8;
+    transform: rotate(3deg);
+    z-index: 1000;
+}

@@ -1,0 +1,98 @@
+@model Form
+
+<div class="form-builder-container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="sidebar">
+                <h5>Form Controls</h5>
+                <div class="control-list">
+                    <div class="control-item" draggable="true" data-type="text">
+                        <i class="bi bi-input-cursor-text"></i> Text Input
+                    </div>
+                    <div class="control-item" draggable="true" data-type="email">
+                        <i class="bi bi-envelope"></i> Email Input
+                    </div>
+                    <div class="control-item" draggable="true" data-type="number">
+                        <i class="bi bi-123"></i> Number Input
+                    </div>
+                    <div class="control-item" draggable="true" data-type="textarea">
+                        <i class="bi bi-textarea-t"></i> Textarea
+                    </div>
+                    <div class="control-item" draggable="true" data-type="select">
+                        <i class="bi bi-menu-button"></i> Dropdown
+                    </div>
+                    <div class="control-item" draggable="true" data-type="checkbox">
+                        <i class="bi bi-check2-square"></i> Checkbox
+                    </div>
+                    <div class="control-item" draggable="true" data-type="radio">
+                        <i class="bi bi-ui-radios"></i> Radio Buttons
+                    </div>
+                </div>
+
+                <h5>Containers</h5>
+                <div class="control-list">
+                    <div class="control-item" draggable="true" data-type="container" data-container-type="div">
+                        <i class="bi bi-square"></i> Div Container
+                    </div>
+                    <div class="control-item" draggable="true" data-type="container" data-container-type="section">
+                        <i class="bi bi-collection"></i> Section
+                    </div>
+                    <div class="control-item" draggable="true" data-type="container" data-container-type="fieldset">
+                        <i class="bi bi-collection"></i> Fieldset
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-9">
+            <div class="form-preview">
+                <div class="form-header">
+                    <h3>Form Designer</h3>
+                    <div class="form-actions">
+                        <button id="saveForm" class="btn btn-primary">Save Form</button>
+                        <button id="previewForm" class="btn btn-secondary">Preview</button>
+                    </div>
+                </div>
+
+                <div id="formCanvas" class="form-canvas">
+                    <!-- Existing form elements will be rendered here -->
+                    @if (Model.Containers != null && Model.Containers.Any())
+                    {
+                        foreach (var container in Model.Containers)
+                        {
+                            <div class="form-container" data-container-id="@container.Id">
+                                @foreach (var field in container.Fields)
+                                {
+                                    <div class="form-field" data-field-id="@field.Id">
+                                        <label>@field.Label</label>
+                                        <input type="text" class="form-control" placeholder="@field.Placeholder" />
+                                    </div>
+                                }
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div class="empty-form-message">
+                            Drag and drop elements here to build your form
+                        </div>
+                    }
+                </div>
+
+                <div class="form-properties">
+                    <h5>Properties</h5>
+                    <div id="formPropertiesPanel">
+                        <!-- Properties will be loaded here based on selected element -->
+                        <div class="empty-properties-message">
+                            Select an element to edit its properties
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/form-builder.js"></script>
+}
